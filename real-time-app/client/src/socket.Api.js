@@ -22,3 +22,13 @@ export const send = (color) => {
     socket.emit("newColor" ,color)
 
 }
+
+
+export const subscribe = (cb) => {
+
+socket.on("receive",(color) =>{
+    console.log(color)
+    cb(color)
+})
+
+}
