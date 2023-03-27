@@ -1,0 +1,48 @@
+.week {
+    min-width: 200px;
+    height: 300px;
+    background-color: rgba(51, 48, 48, 0.671);
+    backdrop-filter: blur(5px);
+    border: 2px solid var(--tr-white-2);
+    border-radius: 0.6;
+    box-shadow: 0 1.8em 3.7em var(--shadow);
+    align-self: center;
+    border-left: none;
+
+    gap: 0.5rem;
+    display: grid;
+    grid-template-columns: repeat(7, 135px);
+    justify-content: center;
+    justify-items: center;
+    place-items: center;
+    flex-wrap: nowrap;
+    overflow-x: scroll;
+    flex-shrink: 1;
+
+
+    &::-webkit-scrollbar {
+        background-color: transparent;
+        width: 0.5rem;
+        height: 0.7rem;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background-color: var(--tr-white-2);
+
+        border-radius: 1rem;
+    }
+
+
+    .day {
+        margin: auto 0;
+        width: 100px;
+        height: 150px;
+        background-color: var(--tr-white-2);
+        backdrop-filter: blur(5px);
+        border: 2px solid var(--tr-white-2);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+}
