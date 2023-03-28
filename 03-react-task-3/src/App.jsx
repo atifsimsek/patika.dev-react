@@ -3,11 +3,16 @@ import "./Css/app.scss"
 import ActiveDay from "./Components/ActiveDay";
 import Week from "./Components/Week"
 import Inputs from "./Components/Inputs";
+import WeatherProvider from "./context/WeatherContext";
+
 
 
 function App() {
+
+
+
   return (
-    <>
+    <WeatherProvider>
       <div className="container">
         <Inputs />
         <div className="box">
@@ -15,7 +20,7 @@ function App() {
           <Week />
         </div>
       </div>
-    </>
+    </WeatherProvider>
   );
 }
 

@@ -1,6 +1,9 @@
 import style from "./activeDay.module.scss"
 
+
+
 const ActiveDay = () => {
+
   return (
     <div className={style.activeCard}>
       <h3>SİNOP</h3>
