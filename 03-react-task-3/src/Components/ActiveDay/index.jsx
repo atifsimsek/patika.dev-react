@@ -1,26 +1,32 @@
+import { useWeather } from "../../context/WeatherContext"
 import style from "./activeDay.module.scss"
 
 
 
 const ActiveDay = () => {
 
+
+  const { weather,activeDay } = useWeather()
+
+  console.log(weather.location.name)
+  
   return (
     <div className={style.activeCard}>
-      <h3>SİNOP</h3>
+      <h3>{weather?.location?.name.toUpperCase()}</h3>
       <div className={style.info}>
-        <p>bulutlu</p>
-        <p>parçalı bulutlu</p>
+        <p>{weather?.forecast?.forecastday[activeDay].day.condition.text}</p>
+        <p>{weather?.forecast?.forecastday[activeDay].date}</p>
       </div>
-      <img src="http://openweathermap.org/img/wn/01d@2x.png" alt="" />
-      <h1>32°</h1>
+      <img src={weather?.forecast?.forecastday[activeDay].day.condition.icon} alt="" />
+      <h1>{weather?.forecast?.forecastday[activeDay].day.avgtemp_c}°</h1>
       <div className={style.minmax}>
         <div className={style.min}>
           <h4>min</h4>
-          <p>35°</p>
+          <p>{weather?.forecast?.forecastday[activeDay].day.mintemp_c}°</p>
         </div>
         <div className={style.max}>
           <h4>max</h4>
-          <p>36°</p>
+          <p>{weather?.forecast?.forecastday[activeDay].day.maxtemp_c}°</p>
         </div>
       </div>
     </div>
