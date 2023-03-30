@@ -1,9 +1,9 @@
-import { useWeather } from '../../context/WeatherContext'
+import { useWeatherContext } from '../../context/WeatherContext'
 import styles from './error.module.scss'
 
 const Error = () => {
 
-  const { error } = useWeather()
+  const { error } = useWeatherContext()
 
   console.log(error)
   return (

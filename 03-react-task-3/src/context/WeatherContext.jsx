@@ -18,6 +18,8 @@ const WeatherProvider = ({ children }) => {
 
         const getWeather = async () => {
 
+
+            // Requesting data and error handling processes
             try {
                 const { data } = await axios.get(`http://api.weatherapi.com/v1/forecast.json?key=${process.env.REACT_APP_API_KEY} &q=${city}&days=7&aqi=no&alerts=no`)
                 setWeather(data)
@@ -58,5 +60,5 @@ const WeatherProvider = ({ children }) => {
 const WeatherContext = createContext()
 
 export default WeatherProvider
-export const useWeather = () => useContext(WeatherContext)
+export const useWeatherContext = () => useContext(WeatherContext)
 

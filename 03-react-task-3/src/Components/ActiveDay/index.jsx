@@ -1,4 +1,4 @@
-import { useWeather } from "../../context/WeatherContext"
+import { useWeatherContext } from "../../context/WeatherContext"
 import { formatDate } from "../../utils"
 import Error from "../Error"
 import style from "./activeDay.module.scss"
@@ -8,7 +8,7 @@ import style from "./activeDay.module.scss"
 const ActiveDay = () => {
 
 
-  const { weather, activeDay, error } = useWeather()
+  const { weather, activeDay, error } = useWeatherContext()
 
 
 
@@ -16,6 +16,8 @@ const ActiveDay = () => {
 
     <div className={style.activeCard}>
       {
+
+        // Error displaying section.
         error
           ?
           <Error />
