@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/patika.dev-react/tree/main/03-react-task-3/static/css/main.dbce2e77.css",
+    "main.js": "/patika.dev-react/tree/main/03-react-task-3/static/js/main.bfb3efa1.js",
+    "static/media/wallpaperbetter.com_2880x1800.jpg": "/patika.dev-react/tree/main/03-react-task-3/static/media/wallpaperbetter.com_2880x1800.1aa349d9621f034ea7d8.jpg",
+    "index.html": "/patika.dev-react/tree/main/03-react-task-3/index.html",
+    "main.dbce2e77.css.map": "/patika.dev-react/tree/main/03-react-task-3/static/css/main.dbce2e77.css.map",
+    "main.bfb3efa1.js.map": "/patika.dev-react/tree/main/03-react-task-3/static/js/main.bfb3efa1.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.dbce2e77.css",
+    "static/js/main.bfb3efa1.js"
+  ]
+}
