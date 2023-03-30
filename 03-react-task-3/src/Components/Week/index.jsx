@@ -1,13 +1,12 @@
-import { useEffect } from 'react'
 import { useWeather } from '../../context/WeatherContext'
 import styles from './week.module.scss'
 
 
 const Week = () => {
 
-  
-  const { weather, days, activeDay, setActiveDay } = useWeather()
-  
+
+  const { weather, days, activeDay, setActiveDay, error } = useWeather()
+
   const forecast = weather?.forecast?.forecastday
 
 
@@ -29,7 +28,7 @@ const Week = () => {
 
   return (
     <div className={styles.week}>
-      {
+      {!error &&
         weather?.forecast?.forecastday.map((day, index) => (
           <div onClick={() => { handleClick(day.date) }} key={index} className={`${styles.day}  ${day.date === forecast[activeDay].date ? styles.active : ""}`}>
             <h3>{getDayName(day.date)}</h3>

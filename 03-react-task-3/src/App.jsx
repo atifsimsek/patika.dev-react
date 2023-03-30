@@ -10,14 +10,13 @@ import WeatherProvider from "./context/WeatherContext";
 function App() {
 
 
-
   return (
     <WeatherProvider>
       <div className="container">
         <Inputs />
         <div className="box">
-          <ActiveDay />
-          <Week />
+              <ActiveDay />
+              <Week />
         </div>
       </div>
     </WeatherProvider>
