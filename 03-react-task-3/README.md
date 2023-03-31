@@ -6,6 +6,9 @@
 A weather application has been developed in this project using [WeatherApi](www.weatherapi.com)
 
 
+[Click To Review](weather-app-context-api-patika.vercel.app)
+
+
 
 ## Project features
 * 7-day updated weather forecast.
@@ -22,11 +25,6 @@ Navigate to the project folder and run the command
 ```
 npm run start
 ```
-
-## Nextjs 13 Movie App
-<br/>
-
-[Click To Review](weather-app-context-api-patika.vercel.app)
 
 ### Website Images
 
