@@ -21,7 +21,7 @@ const WeatherProvider = ({ children }) => {
 
             // Requesting data and error handling processes
             try {
-                const { data } = await axios.get(`http://api.weatherapi.com/v1/forecast.json?key=${process.env.REACT_APP_API_KEY} &q=${city}&days=7&aqi=no&alerts=no`)
+                const { data } = await axios.get(`https://api.weatherapi.com/v1/forecast.json?key=${process.env.REACT_APP_API_KEY} &q=${city}&days=7&aqi=no&alerts=no`)
                 setWeather(data)
                 setError(false)
             } catch (error) {
