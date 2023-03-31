@@ -2,6 +2,7 @@ import axios from 'axios';
 import React, { useContext, useEffect, useState } from 'react'
 import { createContext } from "react";
 import days from "../data/days"
+import cities from "../data/cities_of_turkey.json"
 
 
 
@@ -12,6 +13,22 @@ const WeatherProvider = ({ children }) => {
     const [activeDay, setActiveDay] = useState(0)
     const [city, setCity] = useState("Sinop")
     const [error, setError] = useState(false)
+
+
+// Find user location
+
+    navigator.geolocation.getCurrentPosition((position) => {
+
+        cities.forEach(item => {
+
+            const latitude = Math.floor(position.coords.latitude)
+            const longitude = Math.floor(position.coords.longitude)
+
+            if (Math.floor(item.latitude) === latitude && Math.floor(item.longitude) === longitude) {
+                setCity(item.name)
+            }
+        })
+    });
 
 
     useEffect(() => {
