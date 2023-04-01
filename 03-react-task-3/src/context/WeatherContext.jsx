@@ -11,24 +11,34 @@ const WeatherProvider = ({ children }) => {
 
     const [weather, setWeather] = useState({})
     const [activeDay, setActiveDay] = useState(0)
-    const [city, setCity] = useState("Sakarya")
+    const [city, setCity] = useState("İstanbul")
     const [error, setError] = useState(false)
+    const [location, setLocation] = useState(true)
 
 
-// Find user location
 
-    navigator.geolocation.getCurrentPosition((position) => {
+    // Find user location
 
-        cities.forEach(item => {
+    if (navigator.geolocation) {
+        location && navigator.geolocation.getCurrentPosition((position) => {
 
-            const latitude = Math.floor(position.coords.latitude)
-            const longitude = Math.floor(position.coords.longitude)
+            cities.forEach(item => {
 
-            if (Math.floor(item.latitude) === latitude && Math.floor(item.longitude) === longitude) {
-                setCity(item.name)
-            }
-        })
-    });
+                const latitude = Math.round(position.coords.latitude)
+                const longitude = Math.round(position.coords.longitude)
+
+                if (Math.round(item.latitude) === latitude && Math.round(item.longitude) === longitude) {
+                    setCity(item.name)
+                    setLocation(false)
+                }
+            })
+        });
+    } else {
+        console.log("Your browser does not support location information.")
+    }
+
+
+
 
 
     useEffect(() => {
