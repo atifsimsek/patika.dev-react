@@ -34,7 +34,7 @@ const Week = () => {
           <div onClick={() => { handleClick(day.date) }} key={index} className={`${styles.day}  ${day.date === forecast[activeDay].date ? styles.active : ""}`}> 
             <h3>{getDayName(day.date)}</h3>
             <img src={day.day.condition.icon} alt="" />
-            <p>{`${day.day.avgtemp_c}°`}</p>
+            <p>{`${Math.round(day.day.avgtemp_c)}°`}</p>
           </div>
         ))
       }

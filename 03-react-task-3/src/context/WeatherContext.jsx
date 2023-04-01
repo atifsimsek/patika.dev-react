@@ -11,7 +11,7 @@ const WeatherProvider = ({ children }) => {
 
     const [weather, setWeather] = useState({})
     const [activeDay, setActiveDay] = useState(0)
-    const [city, setCity] = useState("Sinop")
+    const [city, setCity] = useState("Sakarya")
     const [error, setError] = useState(false)
 
 

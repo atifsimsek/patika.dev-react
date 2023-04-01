@@ -29,15 +29,15 @@ const ActiveDay = () => {
               <p>{formatDate(weather?.forecast?.forecastday[activeDay].date)}</p>
             </div>
             <img src={weather?.forecast?.forecastday[activeDay].day.condition.icon} alt="" />
-            <h1>{weather?.forecast?.forecastday[activeDay].day.avgtemp_c}°</h1>
+            <h1>{Math.round(weather?.forecast?.forecastday[activeDay].day.avgtemp_c)}°</h1>
             <div className={style.minmax}>
               <div className={style.min}>
                 <h4>min</h4>
-                <p>{weather?.forecast?.forecastday[activeDay].day.mintemp_c}°</p>
+                <p>{Math.round(weather?.forecast?.forecastday[activeDay].day.mintemp_c)}°</p>
               </div>
               <div className={style.max}>
                 <h4>max</h4>
-                <p>{weather?.forecast?.forecastday[activeDay].day.maxtemp_c}°</p>
+                <p>{Math.round(weather?.forecast?.forecastday[activeDay].day.maxtemp_c)}°</p>
               </div>
             </div>
           </>

@@ -13,8 +13,13 @@ const Inputs = () => {
   const searchHandle = (e) => {
 
     if (e.key === "Enter" || e.button === 0) {
-      setCity(input)
-      setInput("")
+      if (input === "") { 
+        alert("Please Search City")
+      }
+      else {
+        setCity(input)
+        setInput("")
+      }
     }
   }
 
@@ -22,9 +27,9 @@ const Inputs = () => {
     <div className={style.inputs}>
       <div className={style.inputBox}>
         <BiSearch onClick={searchHandle} size={23} />
-        <input value={input} onKeyDown={(e) => searchHandle(e)} onChange={e => setInput(e.target.value)} type="text" placeholder='Bir Şehir Girin' />
+        <input value={input} onKeyDown={(e) => searchHandle(e)} onChange={e => setInput(e.target.value)} type="text" placeholder='Search for a city' />
       </div>
-      <br/>
+      <br />
       <select value={city} onChange={(e) => { setCity(e.target.value) }} name="select">
         {cities.map(city => (
           <option key={city.id} value={city.name}>{city.name}</option>
