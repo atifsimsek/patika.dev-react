@@ -22,10 +22,11 @@ const WeatherProvider = ({ children }) => {
     if (navigator.geolocation) {
         location && navigator.geolocation.getCurrentPosition((position) => {
 
+            const latitude = Math.round(position.coords.latitude)
+            const longitude = Math.round(position.coords.longitude)
+
             cities.forEach(item => {
 
-                const latitude = Math.round(position.coords.latitude)
-                const longitude = Math.round(position.coords.longitude)
 
                 if (Math.round(item.latitude) === latitude && Math.round(item.longitude) === longitude) {
                     setCity(item.name)

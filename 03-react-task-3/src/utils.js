@@ -2,7 +2,6 @@
 // This function converts the yyyy-mm-dd date format to dd.mm.yyyy format.
 
 export const formatDate = (date) => {
-    console.log(date)
     const formattedDate = new Date(date);
     const day = formattedDate.getDate();
     const month = formattedDate.getMonth() + 1;

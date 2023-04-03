@@ -5,7 +5,6 @@ const Error = () => {
 
   const { error } = useWeatherContext()
 
-  console.log(error)
   return (
     <div className={styles.error}>
       {`${error.status} ${error.statusText}`}

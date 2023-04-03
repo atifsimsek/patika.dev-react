@@ -12,6 +12,9 @@ const Inputs = () => {
 
   const searchHandle = (e) => {
 
+
+    //input control
+
     if (e.key === "Enter" || e.button === 0) {
       if (input === "") { 
         alert("Please Search City")
