@@ -37,4 +37,4 @@ MIT © [atifsimsek](https://github.com/atifsimsek)
 
 <br/>
 
-<img src="./src/img/gif-1.gif"  width="300" />
+<img src="../src/img/gif-1.gif"  width="300" />
