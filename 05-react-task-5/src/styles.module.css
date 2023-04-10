@@ -50,6 +50,11 @@
 
 }
 
+.dashed:hover {
+    box-shadow: 0 0 20px #4d4f4fc3;
+
+}
+
 .text {
     border: none;
     background: none;
