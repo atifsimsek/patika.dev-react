@@ -1,4 +1,4 @@
-import { Box, Container } from "@mui/material";
+import { Box } from "@mui/material";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
@@ -7,9 +7,10 @@ import Image from "next/image";
 import { images } from "@/assets/images";
 
 const HeroSection = () => {
-  const settings: SliderSettings = {
+  const settings: any = {
+    dots: true,
     infinite: true,
-    speed: 600,
+    speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
   };
@@ -22,6 +23,7 @@ const HeroSection = () => {
             component="div"
             sx={{
               position: "relative",
+              width: "100%",
               pt: "30%",
             }}
           >

@@ -2,8 +2,8 @@ import { grey } from "@mui/material/colors";
 
 // Link buttons
 export const navLink = {
-  "&:hover": { backgroundColor: `${grey[100]}` },
-  color: "black",
+  "&:hover": { backgroundColor: `${grey[100]}`, color: "black" },
+  transition: "all 0.3s",
   paddingX: 2,
   paddingY: 2.9,
 };
