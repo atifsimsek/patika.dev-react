@@ -2,6 +2,9 @@ import Head from "next/head";
 import { Inter } from "next/font/google";
 import { Box } from "@mui/material";
 
+import Header from "@/components/Header";
+import HeroSection from "@/components/HeroSection";
+
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
@@ -14,9 +17,8 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
-        <Box
-          sx={{ backgroundColor: "blueviolet", width: 300, height: 300 }}
-        ></Box>
+        <Header />
+        <HeroSection />
       </main>
     </>
   );
