@@ -6,7 +6,7 @@ import Typography from "@mui/material/Typography";
 import { Button, CardActionArea, CardActions } from "@mui/material";
 import img1 from "../assets/logo.png";
 import Image from "next/image";
-import { flexCenter } from "@/config/commonStyle";
+import { flexCenter } from "@/styles/commonStyle";
 
 export default function Book() {
   return (

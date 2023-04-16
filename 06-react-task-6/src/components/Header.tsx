@@ -2,7 +2,7 @@ import { AppBar, Box, Typography, Link } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import logo from "../assets/logo.png";
 import Image from "next/image";
-import { flexCenter, navLink } from "@/config/commonStyle";
+import { flexCenter, navLink } from "@/styles/commonStyle";
 import { grey } from "@mui/material/colors";
 
 const Header = () => {
