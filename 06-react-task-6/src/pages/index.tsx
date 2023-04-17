@@ -1,12 +1,11 @@
-import Head from "next/head";
-import { Inter } from "next/font/google";
-import { Box } from "@mui/material";
+import Head from 'next/head';
+import { Inter } from 'next/font/google';
+import Header from '@/components/Header';
+import HeroSection from '@/components/HeroSection';
+import Section from '@/components/Section';
+import Footer from '@/components/Footer';
 
-import Header from "@/components/Header";
-import HeroSection from "@/components/HeroSection";
-import Section from "@/components/Section";
-
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({ subsets: ['latin'] });
 
 export default function Home() {
   return (
@@ -18,7 +17,6 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main>
-        <Header />
         <HeroSection />
         <Section />
       </main>
