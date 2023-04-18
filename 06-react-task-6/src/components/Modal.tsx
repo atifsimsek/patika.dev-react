@@ -7,7 +7,7 @@ import Book from './Book';
 import CloseIcon from '@mui/icons-material/Close';
 import { IconButton, Stack } from '@mui/material';
 import Image from 'next/image';
-import { flexCenter } from '@/styles/commonStyle';
+import AutoStoriesIcon from '@mui/icons-material/AutoStories';
 
 const style = {
   position: 'absolute' as 'absolute',
@@ -20,6 +20,8 @@ const style = {
   border: '2px solid #000',
   boxShadow: 24,
   p: 4,
+  display: 'flex',
+  flexDirection: 'column',
 };
 
 export const KeepMountedModal = ({ book }: any) => {
@@ -31,6 +33,8 @@ export const KeepMountedModal = ({ book }: any) => {
   const title = book?.volumeInfo?.title;
   const authors = book?.volumeInfo.authors;
   const description = book?.volumeInfo.description;
+  const language = book?.volumeInfo.language;
+  const previewLink = book?.volumeInfo.previewLink;
 
   return (
     <div>
@@ -42,7 +46,7 @@ export const KeepMountedModal = ({ book }: any) => {
         aria-labelledby="keep-mounted-modal-title"
         aria-describedby="keep-mounted-modal-description"
       >
-        <Box sx={style}>
+        <Box sx={{ ...style }}>
           <IconButton
             onClick={handleClose}
             sx={{
@@ -69,36 +73,66 @@ export const KeepMountedModal = ({ book }: any) => {
             sx={{
               display: 'flex',
               justifyContent: 'space-around',
-              alignContent: 'flex-end',
-              height: '500px',
+              margin: 'auto 0',
             }}
           >
             <Image src={img} alt={title} width={250} height={300} />
             <Stack
               sx={{
-                textAlign: 'center',
-                p: 3,
                 gap: 3,
-                alignSelf: 'flex-start',
+                px: 5,
+                height: 300,
+                width: 600,
+                overflow: 'scroll',
+                '&::-webkit-scrollbar': {
+                  backgroundColor: 'transparent',
+                  width: 10,
+                  height: 10,
+                },
+                '&::-webkit-scrollbar-thumb': {
+                  backgroundColor: 'rgba(73, 65, 65, 0.1)',
+                  borderRadius: 16,
+                },
               }}
             >
               <hr style={{ width: '500px' }} />
-              {authors.map((author: any, i: any) => (
-                <Typography key={i} variant="body2" color="text.secondary">
-                  <span key={i}>
-                    {author}
-                    {i !== authors.length - 1 ? ', ' : ''}
-                  </span>
-                </Typography>
-              ))}
+
+              <Typography variant="body2" color="text.secondary">
+                Author(s):
+                <br />
+                {/* {authors.join(', ')} */}
+              </Typography>
+
+              <Typography variant="body2" color="text.secondary">
+                Language:
+                <br />
+                {language.toUpperCase()}
+              </Typography>
+
               <Typography
                 style={{ fontSize: '14px', textAlign: 'justify' }}
                 variant="h6"
               >
+                Description:
+                <br />
                 {description}
               </Typography>
             </Stack>
           </Box>
+
+          <Button
+            sx={{
+              margin: 'auto',
+              paddingY: 2,
+            }}
+            target="_blank"
+            component="a"
+            href={previewLink}
+            variant="contained"
+            endIcon={<AutoStoriesIcon />}
+          >
+            Preview
+          </Button>
         </Box>
       </Modal>
     </div>

@@ -6,11 +6,15 @@ import Typography from '@mui/material/Typography';
 import { Button, CardActionArea, CardActions } from '@mui/material';
 import Image from 'next/image';
 import { flexCenter } from '@/styles/commonStyle';
+import AutoStoriesIcon from '@mui/icons-material/AutoStories';
+import ArticleIcon from '@mui/icons-material/Article';
+import { shortenTitle } from '@/utils/shortenTitle';
 
 export default function Book({ book, open, setOpen }: any) {
   const title = book?.volumeInfo?.title;
   const img = book?.volumeInfo?.imageLinks.smallThumbnail;
-  const authors = ['elma', 'armut'];
+  const authors = book?.volumeInfo?.authors;
+  const previewLink = book?.volumeInfo.previewLink;
 
   return (
     <Card
@@ -31,39 +35,58 @@ export default function Book({ book, open, setOpen }: any) {
       >
         <Image src={img} height={200} width={150} alt={'resim'} />
         <CardContent sx={{ mr: 3 }}>
-          <Typography gutterBottom variant="h6">
+          <Typography
+            sx={{
+              overflow: 'hidden',
+              display: '-webkit-box',
+              WebkitLineClamp: 2,
+              WebkitBoxOrient: 'vertical',
+            }}
+            gutterBottom
+            variant="h6"
+          >
             {title}
           </Typography>
           <hr />
-          <Typography style={{ fontSize: '14px' }} variant="h6">
-            Authors
+          <Typography
+            sx={{
+              '&::-webkit-scrollbar': {
+                backgroundColor: '',
+                width: 0,
+                height: 0,
+              },
+              overflow: 'scroll',
+              height: 85,
+            }}
+            variant="body2"
+            color="text.secondary"
+          >
+            Author(s):
+            <br />
+            {authors?.join(', ')}
           </Typography>
-          {authors.map((author: any, i: any) => (
-            <Typography
-              sx={{ textAlign: 'center' }}
-              key={i}
-              variant="body2"
-              color="text.secondary"
-            >
-              <span key={i}>
-                {author}
-                {i !== authors.length - 1 ? ', ' : ''}
-              </span>
-            </Typography>
-          ))}
         </CardContent>
       </CardActionArea>
-      <CardActions>
-        <Button size="small" color="primary">
-          Share
+      <CardActions sx={{ gap: 3, py: 2 }}>
+        <Button
+          target="_blank"
+          component="a"
+          size="small"
+          href={previewLink}
+          variant="contained"
+          endIcon={<AutoStoriesIcon />}
+        >
+          Preview
         </Button>
         <Button
+          size="small"
+          variant="contained"
+          endIcon={<ArticleIcon />}
           onClick={() => {
             setOpen(true);
           }}
-          size="small"
         >
-          Learn More
+          Detail
         </Button>
       </CardActions>
     </Card>

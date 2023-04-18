@@ -3,36 +3,48 @@ import LoadingButton from '@mui/lab/LoadingButton';
 import React from 'react';
 import { store } from '@/store';
 import { fetchBooks } from '@/store/services/bookService';
+import { options, options2, options3 } from '@/utils/filterOptions';
+import { useState, useEffect } from 'react';
 
 const SideNav = () => {
-  const currencies = [
-    {
-      value: 'USD',
-      label: '$',
-    },
-    {
-      value: 'EUR',
-      label: '€',
-    },
-    {
-      value: 'BTC',
-      label: '฿',
-    },
-    {
-      value: 'JPY',
-      label: '¥',
-    },
-  ];
+  const [inputValues, setInputValues] = useState({
+    search: '',
+    filter: 'partial',
+    printType: 'all',
+    sortBy: 'relevance',
+  });
+
+  const handleChange = (event: any) => {
+    setInputValues({
+      ...inputValues,
+      [event.target.name]: event.target.value,
+    });
+  };
+
+  const getBooks = async () => {
+    await store.dispatch(fetchBooks(inputValues));
+  };
+
+  const handleSubmit = (e: any) => {
+    e.preventDefault();
+    if (inputValues.search === '') {
+      alert('Please enter a valid book title.');
+    } else {
+      getBooks();
+    }
+  };
+
   return (
     <Box
       component={'form'}
+      onSubmit={handleSubmit}
       sx={{
         height: 530,
         p: 3,
         backgroundColor: 'primary.light',
         boxShadow: 3,
         display: 'flex',
-        gap: 3,
+        gap: 6,
         flexDirection: 'column',
         position: 'sticky',
         top: 70,
@@ -40,44 +52,49 @@ const SideNav = () => {
     >
       <TextField
         color="info"
-        id="outlined-basic"
+        id="search"
+        name="search"
         label="Search Book"
         variant="outlined"
+        onChange={handleChange}
       />
       <TextField
+        onChange={handleChange}
         id="filter"
+        name="filter"
         select
         label="Filter"
-        defaultValue="EUR"
-        helperText="Please select your currency"
+        defaultValue="partial"
       >
-        {currencies.map((option) => (
+        {options.map((option) => (
           <MenuItem key={option.value} value={option.value}>
             {option.label}
           </MenuItem>
         ))}
       </TextField>
       <TextField
-        id="filterType"
+        onChange={handleChange}
+        id="printType"
+        name="printType"
         select
-        label="Filter Type"
-        defaultValue="EUR"
-        helperText="Please select your currency"
+        label="Print Type"
+        defaultValue="all"
       >
-        {currencies.map((option) => (
+        {options2.map((option) => (
           <MenuItem key={option.value} value={option.value}>
             {option.label}
           </MenuItem>
         ))}
       </TextField>
       <TextField
-        id="SortBy"
+        onChange={handleChange}
+        id="sortBy"
+        name="sortBy"
         select
         label="Sort By"
-        defaultValue="EUR"
-        helperText="Please select your currency"
+        defaultValue="relevance"
       >
-        {currencies.map((option) => (
+        {options3.map((option) => (
           <MenuItem key={option.value} value={option.value}>
             {option.label}
           </MenuItem>
@@ -88,6 +105,7 @@ const SideNav = () => {
         loading={false}
         loadingIndicator="Loading…"
         variant="outlined"
+        type="submit"
       >
         <span>Search</span>
       </LoadingButton>

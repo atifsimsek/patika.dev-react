@@ -7,18 +7,11 @@ import { store } from '@/store';
 import { fetchBooks } from '@/store/services/bookService';
 import { useAppSelector } from '@/store/hooks';
 import { KeepMountedModal as Modal } from './Modal';
+import Skeleton from './Skeleton';
 
 const Section = () => {
-  const getBooks = async () => {
-    await store.dispatch(fetchBooks());
-  };
-  useEffect(() => {
-    getBooks();
-  }, []);
-
   const books = useAppSelector((store) => store.books.books);
-
-  console.log(books);
+  const loading = useAppSelector((store) => store.books.isLoading);
   return (
     <Box
       sx={{
@@ -32,22 +25,31 @@ const Section = () => {
       <Grid
         sx={{
           '&::-webkit-scrollbar': {
-            backgroundColor: '',
-            width: 0,
-            height: 0,
+            backgroundColor: 'transparent',
+            width: 10,
+            height: 10,
+          },
+          '&::-webkit-scrollbar-thumb': {
+            backgroundColor: 'rgba(73, 65, 65, 0.1)',
+            borderRadius: 16,
           },
           maxHeight: 530,
           overflow: 'scroll',
           flexWrap: 'wrap',
           justifyContent: 'center',
+          p: 1,
         }}
         container
         gap={5}
       >
-        {books?.items?.length > 0 &&
-          books?.items.map((book: any, index: number) => (
-            <Modal book={book} key={index} />
-          ))}
+        {loading
+          ? Array.from({ length: 10 }).map((_, index) => (
+              <Skeleton key={index} />
+            ))
+          : books?.items?.length > 0 &&
+            books?.items.map((book: any, index: number) => (
+              <Modal book={book} key={index} />
+            ))}
       </Grid>
     </Box>
   );

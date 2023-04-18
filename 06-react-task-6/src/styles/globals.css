@@ -1,4 +1,11 @@
 body{
     background-color: #e0e0e0;
+    color:rgba(73, 65, 65, 0.1)
+}
+
+body::-webkit-scrollbar {
+
+    width: 0;
+    height: 0;
 }
 .slick-slider{overflow: hidden;}
