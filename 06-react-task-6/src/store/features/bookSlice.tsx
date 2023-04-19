@@ -10,20 +10,21 @@ export interface BookState {
 const initialState: BookState = {
   books: {},
   isLoading: false,
-  error: {},
+  error: '',
 };
 
 const bookSlice = createSlice({
   name: 'book',
   initialState,
   reducers: {},
+
   extraReducers(builder) {
     builder.addCase(fetchBooks.pending, (state, action) => {
       state.books = action.payload;
-      state.isLoading = true;
+      state.isLoading = true; // set loading  state
     });
     builder.addCase(fetchBooks.fulfilled, (state, action) => {
-      state.books = action.payload;
+      state.books = action.payload; // set data state
       state.isLoading = false;
     });
     builder.addCase(fetchBooks.rejected, (state, action) => {

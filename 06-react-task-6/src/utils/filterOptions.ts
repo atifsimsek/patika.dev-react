@@ -1,3 +1,4 @@
+// input options
 export const options = [
   {
     value: 'full',

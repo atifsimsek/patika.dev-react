@@ -5,6 +5,7 @@ import { flexCenter } from '@/styles/commonStyle';
 
 export default function Skeleton() {
   return (
+    //Skeleton Component
     <Box
       sx={{
         maxWidth: 345,

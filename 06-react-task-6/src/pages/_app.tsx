@@ -4,11 +4,8 @@ import { CacheProvider, EmotionCache } from '@emotion/react';
 import { AppProps } from 'next/app';
 import theme from '@/styles/theme';
 import createEmotionCache from '@/styles/createEmotionCache';
-import StoreProvider from '@/store/StoreProvider';
 import Layout from '@/components/Layout';
-import { useEffect } from 'react';
 import { store } from '@/store';
-import { fetchBooks } from '@/store/services/bookService';
 import { Provider } from 'react-redux';
 
 // Client-side cache, shared for the whole session of the user in the browser.
@@ -24,6 +21,7 @@ export default function App(props: MyAppProps) {
     <CacheProvider value={emotionCache}>
       <ThemeProvider theme={theme}>
         <CssBaseline />
+        {/* Redux Provider */}
         <Provider store={store}>
           <Layout>
             <Component {...pageProps} />

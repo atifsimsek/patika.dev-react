@@ -1,14 +1,19 @@
 import * as React from 'react';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { Button, CardActionArea, CardActions } from '@mui/material';
 import Image from 'next/image';
 import { flexCenter } from '@/styles/commonStyle';
 import AutoStoriesIcon from '@mui/icons-material/AutoStories';
 import ArticleIcon from '@mui/icons-material/Article';
-import { shortenTitle } from '@/utils/shortenTitle';
+import FavoriteIcon from '@mui/icons-material/Favorite';
+import IconButton from '@mui/material/IconButton';
+
+interface Props {
+  book: {};
+  open: boolean;
+}
 
 export default function Book({ book, open, setOpen }: any) {
   const title = book?.volumeInfo?.title;
@@ -19,12 +24,13 @@ export default function Book({ book, open, setOpen }: any) {
   return (
     <Card
       sx={{
-        maxWidth: 345,
         ...flexCenter,
+        maxWidth: 345,
         flexDirection: 'column',
         boxShadow: 3,
       }}
     >
+      {/* Card content */}
       <CardActionArea
         sx={{
           display: 'flex',
@@ -33,7 +39,13 @@ export default function Book({ book, open, setOpen }: any) {
           textAlign: 'center',
         }}
       >
+        {/* Favorite button */}
+        <IconButton sx={{ position: 'absolute', top: 3, right: 3 }}>
+          <FavoriteIcon />
+        </IconButton>
+        {/* Book cover image */}
         <Image src={img} height={200} width={150} alt={'resim'} />
+        {/* Book title and author */}
         <CardContent sx={{ mr: 3 }}>
           <Typography
             sx={{
@@ -61,13 +73,16 @@ export default function Book({ book, open, setOpen }: any) {
             variant="body2"
             color="text.secondary"
           >
+            {/* Book author */}
             Author(s):
             <br />
             {authors?.join(', ')}
           </Typography>
         </CardContent>
       </CardActionArea>
+      {/* Buttons */}
       <CardActions sx={{ gap: 3, py: 2 }}>
+        {/* Preview button */}
         <Button
           target="_blank"
           component="a"
@@ -78,6 +93,7 @@ export default function Book({ book, open, setOpen }: any) {
         >
           Preview
         </Button>
+        {/* Detail button */}
         <Button
           size="small"
           variant="contained"
