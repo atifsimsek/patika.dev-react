@@ -28,7 +28,7 @@ const bookSlice = createSlice({
       state.isLoading = false;
     });
     builder.addCase(fetchBooks.rejected, (state, action) => {
-      state.error = action.payload;
+      state.error = action.payload; // set error state
       state.isLoading = false;
     });
   },

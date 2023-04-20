@@ -27,7 +27,7 @@ export const KeepMountedModal = ({ book }: Props) => {
   // Extract relevant book information from book prop
   const img = book?.volumeInfo?.imageLinks.thumbnail;
   const title = book?.volumeInfo?.title;
-  const authors = book?.volumeInfo.authors;
+  const authors = book?.volumeInfo?.authors;
   const description = book?.volumeInfo.description;
   const language = book?.volumeInfo.language;
   const previewLink = book?.volumeInfo.previewLink;
@@ -132,7 +132,7 @@ export const KeepMountedModal = ({ book }: Props) => {
               <Typography variant="body2" color="text.secondary">
                 Author(s):
                 <br />
-                {authors.join(', ')}
+                {authors?.join(', ')}
               </Typography>
 
               <Typography variant="body2" color="text.secondary">

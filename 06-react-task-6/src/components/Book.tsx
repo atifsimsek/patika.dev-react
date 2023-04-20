@@ -9,13 +9,15 @@ import AutoStoriesIcon from '@mui/icons-material/AutoStories';
 import ArticleIcon from '@mui/icons-material/Article';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import IconButton from '@mui/material/IconButton';
+import { BookType } from '@/types/BookType';
 
 interface Props {
-  book: {};
+  book: BookType;
   open: boolean;
+  setOpen: (value: boolean) => void;
 }
 
-export default function Book({ book, open, setOpen }: any) {
+export default function Book({ book, open, setOpen }: Props) {
   const title = book?.volumeInfo?.title;
   const img = book?.volumeInfo?.imageLinks.smallThumbnail;
   const authors = book?.volumeInfo?.authors;

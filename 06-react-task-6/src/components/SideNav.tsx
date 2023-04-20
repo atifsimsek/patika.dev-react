@@ -81,7 +81,7 @@ const SideNav = () => {
   return (
     // Form container
 
-    <Box component={'div'} sx={{ position: 'relative' }}>
+    <Box component={'div'} sx={{ position: 'relative', mt: { xs: 2, sm: 0 } }}>
       <IconButton
         size="small"
         sx={{ ...icon }}

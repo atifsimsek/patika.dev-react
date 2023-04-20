@@ -3,12 +3,15 @@ import React, { useEffect, useState } from 'react';
 import logo from '../../public/assets/logo.png';
 import Image from 'next/image';
 import { flexCenter } from '@/styles/commonStyle';
-import { grey } from '@mui/material/colors';
 import Link from 'next/link';
 import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
+import { useRouter } from 'next/router';
 
 const Header = () => {
+  const router = useRouter();
+  const { pathname } = router;
+
   const [fixed, setFixed] = useState<boolean>(false);
   const [open, setOpen] = useState<boolean>(false);
 
@@ -32,8 +35,8 @@ const Header = () => {
   // Styles for logo
   const header = {
     height: 70,
-    bgcolor: fixed ? 'primary.main' : 'transparent',
-    color: fixed ? 'black' : 'primary.light',
+    bgcolor: pathname !== '/' || fixed ? 'primary.main' : 'transparent',
+    color: pathname !== '/' || fixed ? 'black' : 'primary.light',
     boxShadow: 2,
     transition: 'all 0.3s',
     position: 'fixed',
@@ -108,7 +111,7 @@ const Header = () => {
         <IconButton
           sx={{
             display: { xs: 'flex', sm: 'flex', md: 'none' },
-            color: fixed ? 'black' : 'primary.light',
+            color: pathname !== '/' || fixed ? 'black' : 'primary.light',
             zIndex: 100,
           }}
           onClick={() => {
@@ -162,25 +165,11 @@ const Header = () => {
             <Box
               component={'span'}
               sx={{
-                color: fixed ? 'black' : 'primary.light',
+                color: pathname !== '/' || fixed ? 'black' : 'primary.light',
                 ...navLink,
               }}
             >
               Books
-            </Box>
-          </Link>
-          <Link
-            href="/favorites"
-            style={{ textDecoration: 'none', height: '100%' }}
-          >
-            <Box
-              component={'span'}
-              sx={{
-                color: fixed ? 'black' : 'primary.light',
-                ...navLink,
-              }}
-            >
-              Favorites
             </Box>
           </Link>
           <Link
@@ -190,7 +179,7 @@ const Header = () => {
             <Box
               component={'span'}
               sx={{
-                color: fixed ? 'black' : 'primary.light',
+                color: pathname !== '/' || fixed ? 'black' : 'primary.light',
                 ...navLink,
               }}
             >

@@ -24,6 +24,7 @@ const HeroSection = () => {
     background: 'rgba(19, 18, 18, 0.350)',
     inset: 0,
     zIndex: 5,
+    marginBottom: 1,
   };
 
   return (
@@ -38,7 +39,6 @@ const HeroSection = () => {
               position: 'relative',
               width: '100%',
               pt: '30%',
-              marginBottom: 1,
             }}
           >
             {/* Add a semi-transparent overlay on top of the image */}

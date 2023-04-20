@@ -1,9 +1,5 @@
 import { Box, Grid } from '@mui/material';
-import Book from './Book';
 import SideNav from './SideNav';
-import { useEffect } from 'react';
-import { store } from '@/store';
-import { fetchBooks } from '@/store/services/bookService';
 import { useAppSelector } from '@/store/hooks';
 import { KeepMountedModal as Modal } from './Modal';
 import Skeleton from './Skeleton';
@@ -17,7 +13,7 @@ const Section = () => {
   // Styling for the book section
   const section = {
     '&::-webkit-scrollbar': {
-      backgroundColor: 'transparent',
+      backgroundColor: '',
       width: 10,
       height: 10,
     },
@@ -25,16 +21,17 @@ const Section = () => {
       backgroundColor: 'rgba(73, 65, 65, 0.1)',
       borderRadius: 16,
     },
-    maxHeight: '100vh',
+    minHeight: '75vh',
     overflow: 'scroll',
     flexWrap: 'wrap',
     justifyContent: 'center',
     p: 1,
+    mb: { xs: 11, sm: 6 },
   };
 
   const box = {
     p: { xs: 0, sm: 5 },
-    marginBottom: { xs: -1, sm: -6.3 },
+    // marginBottom: { xs: -1, sm: -6.3 },
     display: 'flex',
     justifyContent: 'space-between',
     backgroundColor: 'secondary.main',
@@ -47,7 +44,7 @@ const Section = () => {
       }}
     >
       <SideNav />
-      <Grid sx={{ ...section }} container gap={5}>
+      <Grid sx={{ ...section, maxHeight: '85vh' }} container gap={5}>
         {/* Check loading */}
         {loading
           ? Array.from({ length: 10 }).map((_, index: number) => (
