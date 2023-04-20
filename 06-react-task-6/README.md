@@ -1,6 +1,6 @@
 # Library
 
-[www.patika.dev](www.deneme.com) task-6 Book App
+[www.patika.dev](www.patika.dev) task-6 Book App
 
 ## 🌍 Live
 

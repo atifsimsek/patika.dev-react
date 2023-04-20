@@ -70,13 +70,13 @@ const page = () => {
             <ListItemIcon>
               <CheckIcon />
             </ListItemIcon>
-            <Typography>Axios</Typography>
+            <Typography>Material UI / Material Icons</Typography>
           </ListItem>
           <ListItem>
             <ListItemIcon>
               <CheckIcon />
             </ListItemIcon>
-            <Typography>Material UI / Material Icons</Typography>
+            <Typography>Redux Toolkit</Typography>
           </ListItem>
           <ListItem>
             <ListItemIcon>
@@ -88,7 +88,7 @@ const page = () => {
             <ListItemIcon>
               <CheckIcon />
             </ListItemIcon>
-            <Typography>Redux Toolkit</Typography>
+            <Typography>Axios</Typography>
           </ListItem>
         </List>
       </Stack>
