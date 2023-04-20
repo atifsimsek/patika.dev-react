@@ -17,9 +17,9 @@ interface Props {
 
 export default function Book({ book, open, handleOpen }: Props) {
   const title = book?.volumeInfo?.title;
-  const img = book?.volumeInfo?.imageLinks.smallThumbnail;
+  const img = book?.volumeInfo?.imageLinks?.smallThumbnail;
   const authors = book?.volumeInfo?.authors;
-  const previewLink = book?.volumeInfo.previewLink;
+  const previewLink = book?.volumeInfo?.previewLink;
 
   return (
     <Card
