@@ -11,7 +11,6 @@ import { useRouter } from 'next/router';
 const Header = () => {
   const router = useRouter();
   const { pathname } = router;
-
   const [fixed, setFixed] = useState<boolean>(false);
   const [open, setOpen] = useState<boolean>(false);
 
@@ -31,6 +30,11 @@ const Header = () => {
       window.removeEventListener('scroll', headerFixed);
     };
   }, []);
+
+  // Automatically closing when the menu changes
+  useEffect(() => {
+    setOpen(false);
+  }, [pathname]);
 
   // Styles for logo
   const header = {
@@ -76,7 +80,7 @@ const Header = () => {
   const mobile = {
     ...flexCenter,
     display: { xs: 'flex', sm: 'flex', md: 'none' },
-    transform: open ? 'translateY(-170px)' : 'translateY(0px)',
+    transform: open ? 'translateY(0px)' : 'translateY(-170px)',
     transition: 'all 1s',
     position: 'fixed',
     top: 0,
@@ -104,7 +108,7 @@ const Header = () => {
 
         {/* Main title */}
         <Typography sx={{ ...mainTitle }} variant="h1">
-          My Library
+          E-Library
         </Typography>
 
         {/* Mobile Nav links */}
@@ -119,7 +123,7 @@ const Header = () => {
           }}
           aria-label="delete"
         >
-          {open ? <MenuIcon /> : <CloseIcon />}
+          {open ? <CloseIcon /> : <MenuIcon />}
         </IconButton>
 
         <Box
@@ -135,7 +139,7 @@ const Header = () => {
                 color: 'primary.light',
               }}
             >
-              Books
+              Library
             </Box>
           </Link>
           <Link style={{ textDecoration: 'none' }} href={'/about'}>
@@ -169,7 +173,7 @@ const Header = () => {
                 ...navLink,
               }}
             >
-              Books
+              Library
             </Box>
           </Link>
           <Link

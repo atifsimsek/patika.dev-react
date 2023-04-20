@@ -18,7 +18,7 @@ export default function Skeleton() {
         sx={{ bgcolor: 'grey.400' }}
         variant="rectangular"
         width={345}
-        height={200}
+        height={260}
       />
     </Box>
   );

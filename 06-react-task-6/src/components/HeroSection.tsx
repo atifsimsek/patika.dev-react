@@ -11,7 +11,9 @@ const HeroSection = () => {
   const settings: SliderSettings = {
     dots: true,
     infinite: true,
-    speed: 500,
+    autoplay: true,
+    speed: 2000,
+    autoplaySpeed: 7000,
     slidesToShow: 1,
     slidesToScroll: 1,
   };

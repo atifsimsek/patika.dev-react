@@ -58,6 +58,12 @@ const page = () => {
             <ListItemIcon>
               <CheckIcon />
             </ListItemIcon>
+            <Typography>TypeScript</Typography>
+          </ListItem>
+          <ListItem>
+            <ListItemIcon>
+              <CheckIcon />
+            </ListItemIcon>
             <Typography>Next.js 13</Typography>
           </ListItem>
           <ListItem>

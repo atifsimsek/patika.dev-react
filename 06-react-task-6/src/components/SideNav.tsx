@@ -38,9 +38,11 @@ const SideNav = () => {
   const handleSubmit = (e: React.ChangeEvent<HTMLInputElement>) => {
     e.preventDefault();
     if (inputValues.search === '') {
-      alert('Please enter a valid book title.');
+      alert('please enter a valid value.');
     } else {
+      setInputValues({ ...inputValues, search: '' });
       getBooks();
+      setOpen(false);
     }
   };
 
@@ -50,8 +52,8 @@ const SideNav = () => {
   // Style for the form container
   const form = {
     transform: {
-      xs: open ? 'translateX(-250px)' : 'translateX(-40px)',
-      sm: open ? 'translateX(-300px)' : 'translateX(-40px)',
+      xs: open ? 'translateX(-40px)' : 'translateX(-250px)',
+      sm: open ? 'translateX(-40px)' : 'translateX(-300px)',
       md: 'translateX(0px)',
     },
     height: 530,
@@ -90,7 +92,7 @@ const SideNav = () => {
         }}
         aria-label="delete"
       >
-        {open ? <MenuIcon /> : <MenuOpenIcon />}
+        {open ? <MenuOpenIcon /> : <MenuIcon />}
       </IconButton>
 
       <Box component={'form'} onSubmit={handleSubmit} sx={{ ...form }}>
@@ -99,8 +101,9 @@ const SideNav = () => {
           color="info"
           id="search"
           name="search"
-          label="Search Book"
+          label="Search"
           variant="outlined"
+          value={inputValues.search}
           onChange={handleChange}
         />
 

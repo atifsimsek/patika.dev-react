@@ -25,12 +25,12 @@ export const KeepMountedModal = ({ book }: Props) => {
   const handleClose = () => setOpen(false);
 
   // Extract relevant book information from book prop
-  const img = book?.volumeInfo?.imageLinks.thumbnail;
+  const img = book?.volumeInfo?.imageLinks?.thumbnail;
   const title = book?.volumeInfo?.title;
   const authors = book?.volumeInfo?.authors;
-  const description = book?.volumeInfo.description;
-  const language = book?.volumeInfo.language;
-  const previewLink = book?.volumeInfo.previewLink;
+  const description = book?.volumeInfo?.description;
+  const language = book?.volumeInfo?.language;
+  const previewLink = book?.volumeInfo?.previewLink;
 
   // Style for modal
   const style = {
@@ -52,7 +52,8 @@ export const KeepMountedModal = ({ book }: Props) => {
     bgcolor: 'background.paper',
     border: '2px solid #000',
     boxShadow: 24,
-    p: 4,
+    p: { xs: 0, md: 4 },
+    py: { xs: 3, md: 0 },
     display: 'flex',
     flexDirection: 'column',
   };
@@ -78,7 +79,7 @@ export const KeepMountedModal = ({ book }: Props) => {
 
   return (
     <div>
-      <Book book={book} open={open} setOpen={setOpen}></Book>
+      <Book book={book} open={open} handleOpen={handleOpen}></Book>
       <Modal
         keepMounted
         open={open}
@@ -91,8 +92,8 @@ export const KeepMountedModal = ({ book }: Props) => {
             onClick={handleClose}
             sx={{
               position: 'absolute',
-              top: 10,
-              right: 10,
+              top: { xs: -1, sm: 10 },
+              right: { xs: -1, sm: 10 },
             }}
             aria-label="delete"
             size="large"
@@ -101,7 +102,7 @@ export const KeepMountedModal = ({ book }: Props) => {
           </IconButton>
 
           <Typography
-            sx={{ textAlign: 'center' }}
+            sx={{ textAlign: 'center', p: { xs: 1, md: 3 } }}
             id="keep-mounted-modal-title"
             variant="h6"
             component="h2"
@@ -126,7 +127,7 @@ export const KeepMountedModal = ({ book }: Props) => {
               width={250}
               height={300}
             />
-            <Stack sx={{ ...detail }}>
+            <Stack sx={{ ...detail, width: '100%' }}>
               <hr style={{ width: '100%' }} />
 
               <Typography variant="body2" color="text.secondary">

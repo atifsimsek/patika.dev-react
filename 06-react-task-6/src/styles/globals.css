@@ -12,6 +12,9 @@ body::-webkit-scrollbar {
 .aboutImage{
 background-image: url(../../public/assets/img-1.jpg);      
 }
+.slick-list{
+    background-color: #e0e0e0;
+}
 
 .slick-slider{overflow: hidden;
 width: auto;}

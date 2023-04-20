@@ -7,17 +7,15 @@ import Image from 'next/image';
 import { flexCenter } from '@/styles/commonStyle';
 import AutoStoriesIcon from '@mui/icons-material/AutoStories';
 import ArticleIcon from '@mui/icons-material/Article';
-import FavoriteIcon from '@mui/icons-material/Favorite';
-import IconButton from '@mui/material/IconButton';
 import { BookType } from '@/types/BookType';
 
 interface Props {
   book: BookType;
   open: boolean;
-  setOpen: (value: boolean) => void;
+  handleOpen: (value: boolean) => void;
 }
 
-export default function Book({ book, open, setOpen }: Props) {
+export default function Book({ book, open, handleOpen }: Props) {
   const title = book?.volumeInfo?.title;
   const img = book?.volumeInfo?.imageLinks.smallThumbnail;
   const authors = book?.volumeInfo?.authors;
@@ -41,10 +39,6 @@ export default function Book({ book, open, setOpen }: Props) {
           textAlign: 'center',
         }}
       >
-        {/* Favorite button */}
-        <IconButton sx={{ position: 'absolute', top: 3, right: 3 }}>
-          <FavoriteIcon />
-        </IconButton>
         {/* Book cover image */}
         <Image src={img} height={200} width={150} alt={'resim'} />
         {/* Book title and author */}
@@ -101,7 +95,7 @@ export default function Book({ book, open, setOpen }: Props) {
           variant="contained"
           endIcon={<ArticleIcon />}
           onClick={() => {
-            setOpen(true);
+            handleOpen(true);
           }}
         >
           Detail
