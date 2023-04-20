@@ -90,12 +90,6 @@ const page = () => {
             </ListItemIcon>
             <Typography>Redux Toolkit</Typography>
           </ListItem>
-          <ListItem>
-            <ListItemIcon>
-              <CheckIcon />
-            </ListItemIcon>
-            <Typography>Redux Thunk</Typography>
-          </ListItem>
         </List>
       </Stack>
     </Box>
