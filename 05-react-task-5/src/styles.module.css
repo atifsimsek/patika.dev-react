@@ -1,78 +1,82 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap');
 
 * {
-    margin: 0;
-    box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
 }
 
 .btn {
-    background-color: #d4d4d4;
-    color: rgb(49, 43, 43);
-    padding: 1.2rem 4rem;
-    border-radius: 1.6rem;
-    border: 2px solid #fff;
-    cursor: pointer;
-    transition: all 1s ease-in;
-    transition: 0.5s;
-    background-size: 200% auto;
-    display: block;
-    text-align: center;
-    font-size: 15px;
-    text-transform: uppercase;
+  background-color: #d4d4d4;
+  color: rgb(49, 43, 43);
+  padding: 1.2rem 4rem;
+  border-radius: 1.6rem;
+  border: 2px solid #fff;
+  cursor: pointer;
+  transition: all 1s ease-in;
+  transition: 0.5s;
+  background-size: 200% auto;
+  display: block;
+  text-align: center;
+  font-size: 15px;
+  text-transform: uppercase;
 }
 
 .default {
-    box-shadow: 0 0 20px #4d4f4fc3;
+  box-shadow: 0 0 20px #4d4f4fc3;
 }
 
 .default:hover {
-    background-color: #fff;
-
+  background-color: #fff;
 }
 
-
 .primary {
-    background-image: linear-gradient(19deg, #21D4FD 0%, #B721FF 50%, #21d4fd 100%);
-    box-shadow: 0 0 20px #21d4fd;
-    color: white;
+  background-image: linear-gradient(
+    19deg,
+    #21d4fd 0%,
+    #b721ff 50%,
+    #21d4fd 100%
+  );
+  box-shadow: 0 0 20px #21d4fd;
+  color: white;
 }
 
 .primary:hover {
-    background-position: right center;
-    background-image: linear-gradient(19deg, #B721FF 0%, #21d4fd 50%, #B721FF 100%);
-    box-shadow: 0 0 20px #B721FF;
-    text-decoration: none;
+  background-position: right center;
+  background-image: linear-gradient(
+    19deg,
+    #b721ff 0%,
+    #21d4fd 50%,
+    #b721ff 100%
+  );
+  box-shadow: 0 0 20px #b721ff;
+  text-decoration: none;
 }
 
 .dashed {
-    border: 2px dashed #fff;
-
+  border: 2px dashed #fff;
 }
 
 .dashed:hover {
-    box-shadow: 0 0 20px #4d4f4fc3;
-
+  box-shadow: 0 0 20px #4d4f4fc3;
 }
 
 .text {
-    border: none;
-    background: none;
+  border: none;
+  background: none;
 }
 
 .text:hover {
-    box-shadow: 0 0 20px #4d4f4fc3;
+  box-shadow: 0 0 20px #4d4f4fc3;
 }
 
-
 .link {
-    border: none;
-    background: none;
-    color: #188bf6;
-
+  border: none;
+  background: none;
+  color: #188bf6;
 }
 
 .link:hover {
-    text-decoration: underline;
-    box-shadow: 0 0 20px #188bf6;
+  text-decoration: underline;
+  box-shadow: 0 0 20px #188bf6;
 }

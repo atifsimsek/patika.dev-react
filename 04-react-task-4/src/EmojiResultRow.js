@@ -5,7 +5,7 @@ import "./EmojiResultRow.css";
 export default class EmojiResultsRow extends PureComponent {
   static propTypes = {
     title: PropTypes.string,
-    symbol: PropTypes.string
+    symbol: PropTypes.string,
   };
 
   render() {

@@ -1,15 +1,12 @@
-import { useWeatherContext } from '../../context/WeatherContext'
-import styles from './error.module.scss'
+import { useWeatherContext } from "../../context/WeatherContext";
+import styles from "./error.module.scss";
 
 const Error = () => {
-
-  const { error } = useWeatherContext()
+  const { error } = useWeatherContext();
 
   return (
-    <div className={styles.error}>
-      {`${error.status} ${error.statusText}`}
-    </div>
-  )
-}
+    <div className={styles.error}>{`${error.status} ${error.statusText}`}</div>
+  );
+};
 
-export default Error
+export default Error;

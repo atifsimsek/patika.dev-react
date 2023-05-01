@@ -2,7 +2,6 @@
 import getData from "./utils.js";
 
 // Fonksiyonun kullanılması
-const data = await getData(1)
+const data = await getData(1);
 
-console.log(data)
-
+console.log(data);

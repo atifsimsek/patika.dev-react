@@ -6,26 +6,26 @@ const cors = require("cors");
 app.use(cors());
 
 app.get("/", (req, res) => {
-	res.send("hello");
+  res.send("hello");
 });
 
 let lastColor = "#282c34";
 
 io.on("connection", (socket) => {
-	console.log("bir kullanıcı bağlandı!");
+  console.log("bir kullanıcı bağlandı!");
 
-	socket.emit("receive", lastColor);
+  socket.emit("receive", lastColor);
 
-	socket.on("newColor", (color) => {
-		console.log(color);
+  socket.on("newColor", (color) => {
+    console.log(color);
 
-		lastColor = color;
-		io.emit("receive", color);
-	});
+    lastColor = color;
+    io.emit("receive", color);
+  });
 
-	socket.on("disconnect", () => {
-		console.log("Bir kullanıcı ayrıldı.");
-	});
+  socket.on("disconnect", () => {
+    console.log("Bir kullanıcı ayrıldı.");
+  });
 });
 
 http.listen(3001, () => console.log("Server is up 🚀 🚀"));

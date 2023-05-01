@@ -1,8 +1,8 @@
 ## Patika React Exercise-1
 
--  Bu çalışmada **"async"** bir fonksiyon tanımlayıp default olarak dışarıya aktarıyoruz.
--  Fonksiyon **Number** tipinde bir id parametresi alıyor.
--  Bu fonksiyon  [https://jsonplaceholder.typicode.com/users/1](https://jsonplaceholder.typicode.com/users/1) - [https://jsonplaceholder.typicode.com/posts?userId=1](https://jsonplaceholder.typicode.com/posts?userId=1) bu iki adrese istek atıp veriler getiriyor.
+- Bu çalışmada **"async"** bir fonksiyon tanımlayıp default olarak dışarıya aktarıyoruz.
+- Fonksiyon **Number** tipinde bir id parametresi alıyor.
+- Bu fonksiyon [https://jsonplaceholder.typicode.com/users/1](https://jsonplaceholder.typicode.com/users/1) - [https://jsonplaceholder.typicode.com/posts?userId=1](https://jsonplaceholder.typicode.com/posts?userId=1) bu iki adrese istek atıp veriler getiriyor.
 - Bu verileri **axios** kütüphanesi ile çağırıyoruz.
 - Çağırdığımız verileri obje olarak birleştirip geri döndürüyoruz.
 - İşlemleri tamamladığımızda kod çıktısı aşağıdaki gibi oluyor.
@@ -15,7 +15,6 @@
 - We use the 'axios' library to retrieve the data we fetched.
 - We merge the retrieved data into an object and return it.
 - Once the operations are completed, the output of the code is as follows.
-
 
 ```
 {
