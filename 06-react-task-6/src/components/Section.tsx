@@ -1,4 +1,4 @@
-import { Box, Grid } from '@mui/material';
+import { Box, Grid, Typography } from '@mui/material';
 import SideNav from './SideNav';
 import { useAppSelector } from '@/store/hooks';
 import { KeepMountedModal as Modal } from './Modal';
@@ -44,17 +44,34 @@ const Section = () => {
       }}
     >
       <SideNav />
-      <Grid sx={{ ...section, maxHeight: '85vh' }} container gap={5}>
-        {/* Check loading */}
-        {loading
-          ? Array.from({ length: 10 }).map((_, index: number) => (
-              <Skeleton key={index} />
-            ))
-          : books?.items?.length > 0 &&
-            books?.items.map((book: BookType, index: number) => (
-              <Modal book={book} key={index} />
-            ))}
-      </Grid>
+      {books?.items?.length === undefined ? (
+        <Typography
+          sx={{
+            fontSize: { xs: 16, sm: '35px' },
+            position: 'absolute',
+            mt: 5,
+            left: '50%',
+            transform: 'translateX(-50%)',
+            color: '#fff',
+            textShadow: '2px 2px 4px rgba(0, 0, 0, 0.3)',
+          }}
+          variant="h3"
+        >
+          Please search for a book
+        </Typography>
+      ) : (
+        <Grid sx={{ ...section, maxHeight: '85vh' }} container gap={5}>
+          {/* Check loading */}
+          {loading
+            ? Array.from({ length: 10 }).map((_, index: number) => (
+                <Skeleton key={index} />
+              ))
+            : books?.items?.length > 0 &&
+              books?.items.map((book: BookType, index: number) => (
+                <Modal book={book} key={index} />
+              ))}
+        </Grid>
+      )}
     </Box>
   );
 };
